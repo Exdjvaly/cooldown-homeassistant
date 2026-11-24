@@ -39,3 +39,5 @@ Install via HACS (custom repository above, category *Integration*), restart, the
 and sign in with your Cooldown app account. Cloud polling, 30 s.
 
 Cooldown Solution GmbH i. G. · https://cooldown-solution.de
+
+Lizenz: MIT (nur dieser Home-Assistant-Client). Der Name „Cooldown“ und das Logo sind nicht Teil der Lizenz.
