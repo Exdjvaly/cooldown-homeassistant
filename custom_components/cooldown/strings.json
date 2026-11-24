@@ -57,7 +57,19 @@
         }
       },
       "limit_w": {
-        "name": "Power limit §14a"
+        "name": "Power limit §14a",
+        "state": {
+          "none": "No limit",
+          "limited": "Limited"
+        },
+        "state_attributes": {
+          "limit_w": {
+            "name": "Limit (W)"
+          },
+          "valid_until": {
+            "name": "Valid until"
+          }
+        }
       },
       "t_flow": {
         "name": "Flow"

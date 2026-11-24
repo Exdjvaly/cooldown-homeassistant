@@ -57,7 +57,19 @@
         }
       },
       "limit_w": {
-        "name": "Leistungsgrenze §14a"
+        "name": "Leistungsgrenze §14a",
+        "state": {
+          "none": "Keine Begrenzung",
+          "limited": "Begrenzt"
+        },
+        "state_attributes": {
+          "limit_w": {
+            "name": "Grenze (W)"
+          },
+          "valid_until": {
+            "name": "Gültig bis"
+          }
+        }
       },
       "t_flow": {
         "name": "Vorlauf"

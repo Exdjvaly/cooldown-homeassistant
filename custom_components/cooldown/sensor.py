@@ -49,8 +49,10 @@ SENSORS: tuple[CdSensor, ...] = (
     CdSensor(key="sg_state", translation_key="sg_state", device_class=SensorDeviceClass.ENUM,
              options=list(SG_NAMES.values()),
              value=lambda d: SG_NAMES.get((d.get("grid") or {}).get("sg_state") or 2)),
-    CdSensor(key="limit_w", translation_key="limit_w", value=lambda d: (d.get("grid") or {}).get("limit_w"),
-             device_class=SensorDeviceClass.POWER, native_unit_of_measurement=UnitOfPower.WATT),
+    # §14a: „Keine Begrenzung“ statt „Unbekannt“, wenn der Netzbetreiber nichts vorgibt; die Grenze steht im Attribut.
+    CdSensor(key="limit_w", translation_key="limit_w", device_class=SensorDeviceClass.ENUM,
+             options=["none", "limited"],
+             value=lambda d: "limited" if (d.get("grid") or {}).get("limit_w") else "none"),
     CdSensor(key="t_flow", translation_key="t_flow", value=_hp("t_flow"), only_kind="heatpump", **TEMP),
     CdSensor(key="t_return", translation_key="t_return", value=_hp("t_return"), only_kind="heatpump", **TEMP),
     CdSensor(key="t_dhw", translation_key="t_dhw", value=_hp("t_dhw"), only_kind="heatpump", **TEMP),
@@ -74,3 +76,10 @@ class CooldownSensor(CooldownEntity, SensorEntity):
     @property
     def native_value(self) -> Any:
         return self.entity_description.value(self.dev)
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        if self.entity_description.key != "limit_w":
+            return None
+        g = self.dev.get("grid") or {}
+        return {"limit_w": g.get("limit_w") or None, "valid_until": g.get("valid_until")}

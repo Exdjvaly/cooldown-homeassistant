@@ -55,6 +55,8 @@ async def test_entities(hass: HomeAssistant, aioclient_mock):
     assert float(e.state) == 123.456 and e.attributes["state_class"] == "total_increasing"
     assert hass.states.get("sensor.lounge_sg_ready").state == "gesperrt"
     assert hass.states.get("binary_sensor.lounge_connection").state == "on"
+    lim = hass.states.get("sensor.lounge_power_limit_ss14a")
+    assert lim.state == "limited" and lim.attributes["limit_w"] == 4200
 
 
 async def test_command(hass: HomeAssistant, aioclient_mock):
