@@ -1,0 +1,78 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cooldown",
+        "description": "Mit dem Konto aus der Cooldown-App anmelden. Das Passwort wird nicht gespeichert, nur ein Zugang, den Sie in der App unter Einstellungen → Smart Home jederzeit löschen können.",
+        "data": {
+          "email": "E-Mail",
+          "password": "Passwort"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Cooldown neu verbinden",
+        "description": "Der Zugang wurde gelöscht oder ist ungültig. Bitte erneut anmelden.",
+        "data": {
+          "email": "E-Mail",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "E-Mail oder Passwort falsch",
+      "cannot_connect": "Cooldown-Server nicht erreichbar"
+    },
+    "abort": {
+      "already_configured": "Dieses Konto ist bereits verbunden",
+      "reauth_successful": "Neu verbunden"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_w": {
+        "name": "Leistung"
+      },
+      "energy_kwh": {
+        "name": "Energie"
+      },
+      "heat_w": {
+        "name": "Heiz-/Kühlleistung"
+      },
+      "t_indoor": {
+        "name": "Raumtemperatur"
+      },
+      "t_outdoor": {
+        "name": "Außentemperatur"
+      },
+      "compressor_hz": {
+        "name": "Verdichter"
+      },
+      "sg_state": {
+        "name": "SG Ready",
+        "state": {
+          "gesperrt": "Gesperrt (EVU / §14a)",
+          "normal": "Normal",
+          "empfohlen": "Einschalten empfohlen",
+          "erzwungen": "Einschalten erzwungen"
+        }
+      },
+      "limit_w": {
+        "name": "Leistungsgrenze §14a"
+      },
+      "t_flow": {
+        "name": "Vorlauf"
+      },
+      "t_return": {
+        "name": "Rücklauf"
+      },
+      "t_dhw": {
+        "name": "Warmwasser"
+      }
+    },
+    "binary_sensor": {
+      "online": {
+        "name": "Verbindung"
+      }
+    }
+  }
+}

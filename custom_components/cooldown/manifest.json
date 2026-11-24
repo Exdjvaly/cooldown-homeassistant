@@ -1,0 +1,14 @@
+{
+  "domain": "cooldown",
+  "name": "Cooldown",
+  "codeowners": [
+    "@Exdjvaly"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Exdjvaly/cooldown-homeassistant",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Exdjvaly/cooldown-homeassistant/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,78 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cooldown",
+        "description": "Sign in with your Cooldown app account. The password is not stored, only an access token you can delete any time in the app (Settings → Smart Home).",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect Cooldown",
+        "description": "The access was deleted or is invalid. Please sign in again.",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Wrong email or password",
+      "cannot_connect": "Cannot reach the Cooldown server"
+    },
+    "abort": {
+      "already_configured": "This account is already connected",
+      "reauth_successful": "Reconnected"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_w": {
+        "name": "Power"
+      },
+      "energy_kwh": {
+        "name": "Energy"
+      },
+      "heat_w": {
+        "name": "Heating/cooling output"
+      },
+      "t_indoor": {
+        "name": "Room temperature"
+      },
+      "t_outdoor": {
+        "name": "Outdoor temperature"
+      },
+      "compressor_hz": {
+        "name": "Compressor"
+      },
+      "sg_state": {
+        "name": "SG Ready",
+        "state": {
+          "gesperrt": "Blocked (grid operator / §14a)",
+          "normal": "Normal",
+          "empfohlen": "Switch-on recommended",
+          "erzwungen": "Switch-on forced"
+        }
+      },
+      "limit_w": {
+        "name": "Power limit §14a"
+      },
+      "t_flow": {
+        "name": "Flow"
+      },
+      "t_return": {
+        "name": "Return"
+      },
+      "t_dhw": {
+        "name": "Hot water"
+      }
+    },
+    "binary_sensor": {
+      "online": {
+        "name": "Connection"
+      }
+    }
+  }
+}
